@@ -26,15 +26,17 @@
   };
   var e = document.getElementsByTagName("script")[0];
   e.parentNode.insertBefore(b, e);
-  var t = document.querySelectorAll("ins.adsbygoogle");
-  console.log("t = "+t);
-  if($(t).height()<10){
+  
+  setTimeout(function() {
+    var t = document.querySelectorAll("ins.adsbygoogle");
+
     console.log("t1 height= " + $(t).height());
-    setTimeout(function() {
+    console.log("t = " + t);
+    if ($(t).height() < 10) {
       console.log("t2 height= " + $(t).height());
       f();
       window.adblock = !0
-     }, 7e2);
-  }
+    }
+  }, 1e3);
   
 }();
