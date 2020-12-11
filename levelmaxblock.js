@@ -30,8 +30,11 @@
   console.log("t = "+t);
   if($(t).height()<10){
     console.log("t1 height= " + $(t).height());
-    f();
-    window.adblock = !0
+    setTimeout(function() {
+      console.log("t2 height= " + $(t).height());
+      f();
+      window.adblock = !0
+     }, 7e2);
   }
   
 }();
