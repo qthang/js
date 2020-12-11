@@ -30,7 +30,7 @@
   console.log("t = "+t);
   if(0 === $(t).height()){
     console.log("t1 = "+0 === $(t).height());
-      f();
+      //f();
     window.adblock = !0
   }
   
