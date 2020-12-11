@@ -29,7 +29,7 @@
   var t = document.querySelectorAll("ins.adsbygoogle");
   console.log("t = "+t);
   if($(t).height()<10){
-    console.log("t1 height= " + $+(t).height());
+    console.log("t1 height= " + $(t).height());
     f();
     window.adblock = !0
   }
