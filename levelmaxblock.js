@@ -16,27 +16,19 @@
       d[a - 1].classList.add("active")
     })
   }
+  window.adblock = !1
   var b = document.createElement("script");
   b.type = "text/javascript";
   b.async = !0;
-  b.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+  b.src = "https://tpc.googlesyndication.com/sodar/sodar2.js";
   b.onerror = function() {
     f();
     window.adblock = !0
   };
+  if(!window.adblock) b.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
   var e = document.getElementsByTagName("script")[0];
   e.parentNode.insertBefore(b, e);
   
-  setTimeout(function() {
-    var t = document.querySelectorAll("ins.adsbygoogle");
-
-    console.log("t1 height= " + $(t).height());
-    console.log("t = " + t);
-    if ($(t).height() < 10) {
-      console.log("t2 height= " + $(t).height());
-      f();
-      window.adblock = !0
-    }
-  }, 1e3);
+  
   
 }();
