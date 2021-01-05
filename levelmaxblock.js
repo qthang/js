@@ -20,15 +20,25 @@
   var b = document.createElement("script");
   b.type = "text/javascript";
   b.async = !0;
-  b.src = "https://tpc.googlesyndication.com/sodar/sodar2.js";
+  b.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
   b.onerror = function() {
     f();
     window.adblock = !0
   };
-  //if(!window.adblock) b.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+  
   var e = document.getElementsByTagName("script")[0];
   e.parentNode.insertBefore(b, e);
   
-  
+  if(!window.adblock){
+    var b = document.createElement("script");
+    b.type = "text/javascript";
+    b.async = !0;
+    b.src = "https://tpc.googlesyndication.com/sodar/sodar2.js";
+    document.head.append(b);
+    b.onerror = function() {
+        f();
+        window.adblock = !0
+    };
+  }
   
 }();
