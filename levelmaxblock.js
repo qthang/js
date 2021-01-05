@@ -25,7 +25,7 @@
     f();
     window.adblock = !0
   };
-  if(!window.adblock) b.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+  //if(!window.adblock) b.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
   var e = document.getElementsByTagName("script")[0];
   e.parentNode.insertBefore(b, e);
   
