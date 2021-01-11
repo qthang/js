@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    transition: 0.5s cubic-bezier(0.5, 0, 0.2, 1);
+  }
+  .abs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .container {
+      margin: unset;
+    width: 80px;
+    height: 80px;
+    perspective: 5000px;
+    transform-style: preserve-3d;
+  }
+  .container.flipped {
+    transform: translate(-50%, -50%) rotateY(180deg);
+  }
+  .container.complete .icon-background {
+    fill: #21cd92;
+    stroke: #21cd92;
+  }
+  .container.complete .error {
+    opacity: 0;
+    transition: 0.3s ease;
+  }
+  .container.error .icon-background {
+    fill: #f44336;
+    stroke: #f44336;
+  }
+  .container.error .check {
+    opacity: 0;
+    transition: 0.3s ease;
+  }
+  .front,
+  .back {
+    backface-visibility: hidden;
+  }
+  .front {
+    z-index: 2;
+    transform: rotateY(0deg);
+  }
+  .back {
+    transform: rotateY(180deg);
+  }
+  .rad-progress,
+  .alt-state {
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+  }
+  .rad-progress {
+    transform: translate(-50%, -50%) rotateZ(-90deg);
+  }
+  .progress-background {
+    stroke: rgba(0,0,0,0.08);
+    stroke-width: 8;
+    fill: none;
+  }
+  .progress-bar {
+    stroke: #2195cd;
+    stroke-width: 8;
+    fill: none;
+  }
+  .progress-label {
+        width: max-content;
+  }
+  .icon {
+    height: 30px;
+    width: 30px;
+    transition: 0.3s 0.3s ease;
+
+  }
+  .icon.check {
+    background: url(&quot;https://skytango.com/wp-content/uploads/2016/11/White-Checkmark-icon.png&quot;) center no-repeat;
+    background-size: 130%;
+  }
+  .icon.error {
+    background: url(&quot;http://aspiredm.com/wp-content/themes/Aspire2016/library/images/menu-cross.png&quot;) center no-repeat;
+    background-size: 90%;
+  }
+    .phantram{    display: block;
+      position: relative;
+      padding: 50px;}
+  .text-center{padding-top: 10px;text-align:center}.text-center button{display: block;margin:0 auto 10px auto;border-radius:5px;text-align:center;padding:12px 22px;box-shadow:0 10px 20px rgba(0,0,0,0.19),0 6px 6px rgba(0,0,0,0.23);transition:all 0.3s cubic-bezier(.25,.8,.25,1)}.text-center button:hover,.text-center button:active,.text-center button:focus{box-shadow:0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24)}.text-center button span{margin:0 5px 0 0}
+    #content-wrapper{    max-width: 1200px;}
+  .post h1.post-title.entry-title, .hidden {
+      display: none !important;
+  }
+  .post-body button{font-size:15px;border-radius:5px;background:#e74c3c;color:#fff;border:0;padding:12px 30px;font-weight:500;outline:none;transition:all .3s}
+  .post-body button:hover,
+  .post-body button:focus{background:#c0392b;outline:none}
+  #na-wrapper,#header-blog, #header-navigation, .sidebar-wrapper, .comments, .post-header{display:none}
+  #main-wrapper{width: 100%!important}
+
+  .post p:first-child {
+      display: unset;
+  }
+  .adsadsia {
+      border: 4px dotted blue;
+  padding-top: 10px;
+      margin-top: 10px;
+  }
+   .quangcaoan{text-align: center;}
