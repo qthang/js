@@ -6,10 +6,10 @@ var mql = window.matchMedia('screen and (min-width: 60em)');if (mql.matches){
 $(document).ready(function(){$("#sidebar-wrapper").theiaStickySidebar({additionalMarginTop:80,additionalMarginBottom:8})});};
 // Youtube Responsive
 $("youtube").each(function(){$(this).append('<div class="youtube-wrap"><div class="youtube-inner"><iframe width="560" height="315" data-src="https://www.youtube.com/embed/'+ $(this).text() +'?rel=0&theme=dark&controls=1&showinfo=0&autohide=0" frameborder="0" allowfullscreen=""></iframe></div></div>');});function init() {var vidDefer = document.getElementsByTagName('iframe');for (var i = 0; i < vidDefer.length; i++) {if (vidDefer[i].getAttribute('data-src')) {vidDefer[i].setAttribute('src', vidDefer[i].getAttribute('data-src'));}}}window.onload = init;
-// Disqus One
-!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//"+disqus_shortname+".disqus.com/blogger_item.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();
 // Disqus
 function load_Comments(){var e=document.getElementById("disqusshow");e.style.display="none";var t="qthang62";!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}()};
 //Redirector - Chuyển hướng trang
-(!function(b){window.top.location.href.includes("/redirect.html")||b.filter(function(a){ return!a.hasAttribute("imageanchor")&&!a.href.startsWith("bp.blogspot.com",10)&&!a.href.startsWith("https://bit.ly")&&!a.href.startsWith("https://www.qthang.net")&&5<a.href.length}).map(function(a){ var url=btoa(""+window.location.pathname+"&"+a.href); a.href="https://www.qthang.net/p/redirect.html?url="+url;a.target="_blank";a.rel="nofollow noopener"})})(Array.from(document.querySelectorAll(".post-body a")));
+(function(b){window.top.location.href.includes("/redirect.html")||b.filter(function(a){ return!a.hasAttribute("imageanchor")&&!a.href.startsWith("bp.blogspot.com",10)&&!a.href.startsWith("https://bit.ly")&&!a.href.startsWith("https://www.qthang.net")&&5<a.href.length}).map(function(a){ var url=btoa(""+window.location.pathname+"&"+a.href); a.href="https://www.qthang.net/p/redirect.html?url="+url;a.target="_blank";a.rel="nofollow noopener"})})(Array.from(document.querySelectorAll(".post-body a")));
+// Disqus One
+!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//"+disqus_shortname+".disqus.com/blogger_item.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();
 
