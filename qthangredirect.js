@@ -143,5 +143,4 @@ var getlink=$('#getlink'),
       
   };
   function timer_thing(i) { setTimeout(function(){ update_progress(i) }, (100 * i)); };
-
-  test();
+//test();
