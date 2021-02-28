@@ -92,7 +92,7 @@
   .post-body button{font-size:15px;border-radius:5px;background:#e74c3c;color:#fff;border:0;padding:12px 30px;font-weight:500;outline:none;transition:all .3s}
   .post-body button:hover,
   .post-body button:focus{background:#c0392b;outline:none}
-    #wrapper{max-width: 100%;}
+    #wrapper{max-width: 100%!important;}
   #na-wrapper,#header-blog, #header-navigation, .sidebar-wrapper, .comments, .post-header{display:none}
   #main-wrapper{width: 100%!important}
 
