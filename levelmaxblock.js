@@ -34,11 +34,11 @@
     b.type = "text/javascript";
     b.async = !0;
     b.src = "https://raw.githack.com/qthang/js/master/prebid-ads.js";
-    document.head.append(b);
-    b.onerror = function() {
-        f();
-        window.adblock = !0
-    };
+//     document.head.append(b);
+//     b.onerror = function() {
+//         f();
+//         window.adblock = !0
+//     };
       e = document.getElementsByTagName("script")[0];
       e.parentNode.insertBefore(b, e);
       if( window.canRunAds === undefined ){
