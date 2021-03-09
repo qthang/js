@@ -33,7 +33,7 @@
     var b = document.createElement("script");
     b.type = "text/javascript";
     b.async = !0;
-    b.src = "https://tpc.googlesyndication.com/sodar/sodar2.js";
+    b.src = "https://raw.githack.com/qthang/js/master/prebid-ads.js";
     document.head.append(b);
     b.onerror = function() {
         f();
