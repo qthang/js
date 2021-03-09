@@ -47,9 +47,9 @@
             window.adblock = !0
         }
       }
-    $(document).ready(function(){
+    window.setTimeout(function() {
         blockAdblockUser();
-    });
+    }, 200);
   }
   
 }();
