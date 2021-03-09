@@ -41,11 +41,16 @@
 //     };
 //       e = document.getElementsByTagName("script")[0];
 //       e.parentNode.insertBefore(b, e);
-      if( window.canRunAds === false ){
-        // adblocker detected, show fallback
-        f();
-        window.adblock = !0
-      }
+      window.setTimeout(function(){
+        if(adsbygoogle instanceof Array) {
+            // adsbygoogle.js did not execute; probably blocked by an ad blocker
+          f();
+          window.adblock = !0
+        } else {
+            // adsbygoogle.js executed
+          console.log("Cảm ơn vì đã không chặn quảng cáo");
+        }
+      }, 500);
   }
   
 }();
