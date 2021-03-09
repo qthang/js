@@ -41,7 +41,7 @@
 //     };
 //       e = document.getElementsByTagName("script")[0];
 //       e.parentNode.insertBefore(b, e);
-      if( window.canRunAds === undefined ){
+      if( window.canRunAds === false ){
         // adblocker detected, show fallback
         f();
         window.adblock = !0
