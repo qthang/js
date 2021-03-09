@@ -41,11 +41,11 @@
 //     };
       e = document.getElementsByTagName("script")[0];
       e.parentNode.insertBefore(b, e);
-      if( window.canRunAds === undefined ){
-        // adblocker detected, show fallback
-        f();
-        window.adblock = !0
-      }
+//       if( window.canRunAds === undefined ){
+//         // adblocker detected, show fallback
+//         f();
+//         window.adblock = !0
+//       }
   }
   
 }();
