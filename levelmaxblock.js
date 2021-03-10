@@ -50,7 +50,7 @@
 //     window.setTimeout(function() {
 //         blockAdblockUser();
 //     }, 200);
-    <script>
+    
     /* Author: AdGlare Ad Server (https://www.adglare.com) */
     function hasAdblock() {
         var a = document.createElement('div');
@@ -71,7 +71,7 @@
         return r;
     }
     alert('Has AdBlock: ' + hasAdblock());
-</script>
+
   }
   
 }();
