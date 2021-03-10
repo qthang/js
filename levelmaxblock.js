@@ -51,27 +51,26 @@
 //         blockAdblockUser();
 //     }, 200);
     
-    /* Author: AdGlare Ad Server (https://www.adglare.com) */
-    function hasAdblock() {
-        var a = document.createElement('div');
-        a.innerHTML = '&nbsp;';
-        a.className = 'adsbox pub_300x250 pub_300x250m pub_728x90 text-ad textAd text_ad adglare ad-server';
-        a.style = 'width: 1px !important; height: 1px !important; position: absolute !important; left: -10000px !important; top: -1000px !important;';
-        var r = false;
-        try {
-            document.body.appendChild(a);
-            var e = document.getElementsByClassName('adsbox')[0];
-            if(e.offsetHeight === 0 || e.clientHeight === 0) r = true;
-            if(window.getComputedStyle !== undefined) {
-                var tmp = window.getComputedStyle(e, null);
-                if(tmp && (tmp.getPropertyValue('display') == 'none' || tmp.getPropertyValue('visibility') == 'hidden')) r = true;
-            }
-            document.body.removeChild(a);
-        } catch (e) {}
-        return r;
-    }
-    alert('Has AdBlock: ' + hasAdblock());
-
+    // We create the function that will be executed if AdBlock is detected
+        var adBlockDetected = function() {
+          console.log('Có Adblock');
+            $('h1 span').text('yes');
+          
+        }
+        // We create the function that will be executed if AdBlock is NOT detected
+        var adBlockUndetected = function() {
+          console.log('Không Adblock');
+            $('h1 span').text('no');
+        }
+        // We observe if the variable "fuckAdBlock" exists
+        if(typeof  FuckAdBlock === 'undefined') {
+            // If it does not exist, it means that AdBlock blocking the script FuckAdBlock
+            // Therefore the function "adBlockDetected" is executed
+            // PS: The function is executed on the "document ready" in order to select the HTML with jQuery
+            $(document).ready(adBlockDetected);
+        } else {
+            // Otherwise, our functions we add to FuckAdBlock for a classic detection
+            fuckAdBlock.on(true, adBlockDetected).on(false, adBlockUndetected);
+        }
   }
-  
 }();
