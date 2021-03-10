@@ -29,49 +29,27 @@
   var e = document.getElementsByTagName("script")[0];
   e.parentNode.insertBefore(b, e);
   
-  if(!window.adblock){
-//     var b = document.createElement("script");
-//     b.type = "text/javascript";
-//     b.async = !0;
-//     b.src = "https://raw.githack.com/qthang/js/master/prebid-ads.js";
-//     document.head.append(b);
-//     b.onerror = function() {
-//         f();
-//         window.adblock = !0
-//     };
-//       e = document.getElementsByTagName("script")[0];
-//       e.parentNode.insertBefore(b, e);
-      function blockAdblockUser() {
-        if ($('#HTML1').height() == 0) {
-            f();
-            window.adblock = !0
-        }
-      }
-//     window.setTimeout(function() {
-//         blockAdblockUser();
-//     }, 200);
-    
-    // We create the function that will be executed if AdBlock is detected
-        var adBlockDetected = function() {
-          console.log('Có Adblock');
-           // $('h1 span').text('yes');
-          f();
-          
-        }
-        // We create the function that will be executed if AdBlock is NOT detected
-        var adBlockUndetected = function() {
-          console.log('Không Adblock');
-            //$('h1 span').text('no');
-        }
-        // We observe if the variable "fuckAdBlock" exists
-        if(typeof  FuckAdBlock === 'undefined') {
-            // If it does not exist, it means that AdBlock blocking the script FuckAdBlock
-            // Therefore the function "adBlockDetected" is executed
-            // PS: The function is executed on the "document ready" in order to select the HTML with jQuery
-            $(document).ready(adBlockDetected);
-        } else {
-            // Otherwise, our functions we add to FuckAdBlock for a classic detection
-            fuckAdBlock.on(true, adBlockDetected).on(false, adBlockUndetected);
-        }
+  if (!window.adblock) {
+  var adBlockDetected = function() {
+      console.log('Có Adblock');
+      f();
+    //$('h1 span').text('yes');
   }
+  var adBlockUndetected = function() {
+      console.log('Không Có Adblock');
+    //$('h1 span').text('no');
+  }
+  if (typeof FuckAdBlock === 'undefined') {
+    $(document).ready(adBlockDetected);
+  } else {
+    fuckAdBlock.on(true, adBlockDetected).on(false, adBlockUndetected);
+  }
+  // It removes the variable "fuckadblock" and "FuckAdBlock
+  // so that it not be exploited by another script later
+  // but beware, you can not use it too!
+  fuckAdBlock = undefined;
+
+  // Do not use FuckAdBlock outside this area
+  // (between importing the script and the line above)
+}
 }();
