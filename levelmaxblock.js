@@ -30,26 +30,16 @@
   e.parentNode.insertBefore(b, e);
   
   if (!window.adblock) {
-  var adBlockDetected = function() {
-      console.log('Có Adblock');
+    b = document.createElement("script");
+    b.type = "text/javascript";
+    b.async = !0;
+    b.src = "https://cdn.jsdelivr.net/npm/fuckadblock@3.2.1/fuckadblock.min.js";
+    b.onerror = function() {
       f();
-    //$('h1 span').text('yes');
-  }
-  var adBlockUndetected = function() {
-      console.log('Không Có Adblock');
-    //$('h1 span').text('no');
-  }
-  if (typeof FuckAdBlock === 'undefined') {
-    $(document).ready(adBlockDetected);
-  } else {
-    fuckAdBlock.on(true, adBlockDetected).on(false, adBlockUndetected);
-  }
-  // It removes the variable "fuckadblock" and "FuckAdBlock
-  // so that it not be exploited by another script later
-  // but beware, you can not use it too!
-  fuckAdBlock = undefined;
+      window.adblock = !0
+    };
 
-  // Do not use FuckAdBlock outside this area
-  // (between importing the script and the line above)
-}
+    e = document.getElementsByTagName("script")[0];
+    e.parentNode.insertBefore(b, e);
+  }
 }();
