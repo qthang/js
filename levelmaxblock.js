@@ -54,13 +54,14 @@
     // We create the function that will be executed if AdBlock is detected
         var adBlockDetected = function() {
           console.log('Có Adblock');
-            $('h1 span').text('yes');
+           // $('h1 span').text('yes');
+          f();
           
         }
         // We create the function that will be executed if AdBlock is NOT detected
         var adBlockUndetected = function() {
           console.log('Không Adblock');
-            $('h1 span').text('no');
+            //$('h1 span').text('no');
         }
         // We observe if the variable "fuckAdBlock" exists
         if(typeof  FuckAdBlock === 'undefined') {
