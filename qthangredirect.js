@@ -70,11 +70,11 @@ var getlink=$('#getlink'),
               var gio = thoigian.getHours();
               console.log("Giờ hiện tại: "+gio);
 
-              if(gio<=13){
+              if(duphong===false){
                   var link = "https://link.qthang.net/getdata.php?p=https://www.qthang.net"+p+"&n="+n;
               }
               else {
-                  var link = "https://link.qthang.net/getdata.php?p=https://www.qthang.net"+p+"&n="+n;
+                  var link = "https://qthang.000webhostapp.com/getdata.php?p=https://www.qthang.net"+p+"&n="+n;
               }
               console.log("Link đang dùng: "+link);
           getJSON(link, function(data) { 
