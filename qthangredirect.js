@@ -5,8 +5,8 @@ var getlink = $('#getlink'),
 function update_progress(pct) {
 
     if (!isNaN(pct)) {
-        if (pct > 100) {
-            pct = 100
+        if (pct > 101) {
+            pct = 101
         }; // Too High
         if (pct < 0) {
             pct = 0
@@ -18,15 +18,18 @@ function update_progress(pct) {
     };
 
     // Check for finish
+		var tt = luu2[0].innerHTML;
+        tt = tt.split("%");
+        var luut = parseInt(tt[0], 10)
     var timerxong;
-    if (pct === 100) {
+    if (pct === 101 && luut>=99) {
         timerxong = setTimeout(function() {
             $('.progress-bar').css('transition', '0.4s cubic-bezier(0.5,0,0.2,1)');
         }, 1000);
     } else {
         clearTimeout(timerxong);
     }
-    (pct === 100) ? (complete()) : (incomplete());
+    (pct === 101 && luut>=99) ? (complete()) : (incomplete());
     //if(pct === 90) glink();
 };
 
@@ -187,7 +190,7 @@ function pauseTimer() {
         pause1 = true;
         var t = luu2[0].innerHTML;
         t = t.split("%");
-        luu = parseInt(t[0], 10) - 3;
+        luu = parseInt(t[0], 10) - 1;
 
         // clear all timers in the array
         while (idd--) {
@@ -209,7 +212,9 @@ function resumeTimer() {
     if (luu > 0 && luu != undefined) {
         resume1 = true;
         console.log(luu + "--" + resume1);
-        prtimer1(luu);
+		setTimeout(function() {
+        	prtimer1(luu);
+		}, 800);
     }
 
 }
@@ -229,9 +234,7 @@ var idd;
 
 function prtimer1(s) {
     console.log(s + 'pr');
-    //if(luu == undefined){timers= timers || [];}
-
-    for (i = 0; i <= (100 - s); i++) {
+    for (i = 0; i <= (150 - s); i++) {
         timer_thing(i);
     };
 }
