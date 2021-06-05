@@ -45,7 +45,7 @@
   }
   
   if (!window.adblock) {
-    testImage("https://storage.fshare.vn/images/qthang.net_300x250.gif);;
+    testImage("https://storage.fshare.vn/images/qthang.net_300x250.gif");
   }
   
   function testImage(URL) {
