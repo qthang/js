@@ -18,34 +18,6 @@
   }
   
   window.adblock = !1
-  
-function testImage(URL) {
-  var tester=new Image();
-  tester.onload=imageFound;
-  tester.onerror=imageNotFound;
-  tester.src=URL;
-}
-function imageFound() {
-    //console.log('không chặn');
-  var b = document.createElement("script");
-  b.type = "text/javascript";
-  b.async = !0;
-  b.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
-  b.onerror = function() {
-    f();
-    window.adblock = !0
-  };
-  
-  var e = document.getElementsByTagName("script")[0];
-  e.parentNode.insertBefore(b, e);
-}
-
-function imageNotFound() {
-    f();
-    window.adblock = !0
-}
-
-  
   var b = document.createElement("script");
   b.type = "text/javascript";
   b.async = !0;
@@ -59,6 +31,38 @@ function imageNotFound() {
   e.parentNode.insertBefore(b, e);
   
   if (!window.adblock) {
-    testImage("https://storage.fshare.vn/images/qthang.net_300x250.gif");
+    b = document.createElement("script");
+    b.type = "text/javascript";
+    b.async = !0;
+    b.src = "https://cdn.jsdelivr.net/npm/fuckadblock@3.2.1/fuckadblock.min.js";
+    b.onerror = function() {
+      f();
+      window.adblock = !0
+    };
+
+    e = document.getElementsByTagName("script")[0];
+    e.parentNode.insertBefore(b, e);
   }
+  
+  if (!window.adblock) {
+    testImage("https://storage.fshare.vn/images/qthang.net_300x250.gif);;
+  }
+  
+  function testImage(URL) {
+    var tester=new Image();
+    tester.onload=imageFound;
+    tester.onerror=imageNotFound;
+    tester.src=URL;
+}
+function imageFound() {
+    //alert('That image is found and loaded');
+}
+
+function imageNotFound() {
+    f();
+      window.adblock = !0
+}
+
+
+  
 }();
