@@ -16,7 +16,25 @@
       d[a - 1].classList.add("active")
     })
   }
+  
   window.adblock = !1
+  
+function testImage(URL) {
+  var tester=new Image();
+  tester.onload=imageFound;
+  tester.onerror=imageNotFound;
+  tester.src=URL;
+}
+function imageFound() {
+    console.log('Cảm ơn vì không chặn quảng cáo tại QThang.net');
+}
+
+function imageNotFound() {
+    f();
+    window.adblock = !0
+}
+
+  
   var b = document.createElement("script");
   b.type = "text/javascript";
   b.async = !0;
@@ -30,16 +48,6 @@
   e.parentNode.insertBefore(b, e);
   
   if (!window.adblock) {
-    b = document.createElement("script");
-    b.type = "text/javascript";
-    b.async = !0;
-    b.src = "https://cdn.jsdelivr.net/npm/fuckadblock@3.2.1/fuckadblock.min.js";
-    b.onerror = function() {
-      f();
-      window.adblock = !0
-    };
-
-    e = document.getElementsByTagName("script")[0];
-    e.parentNode.insertBefore(b, e);
+    testImage("https://storage.fshare.vn/images/qthang.net_300x250.gif");
   }
 }();
