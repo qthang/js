@@ -3,10 +3,11 @@ var getlink = $('#getlink'),
     url = '';
 
 function update_progress(pct) {
-
+	console.log('timer: '+idd);
     if (!isNaN(pct)) {
-        if (pct > 101) {
-            pct = 101
+        if (pct >= 101) {
+            console.log('pct >= 101: '+pct);
+            pct = 101;
         }; // Too High
         if (pct < 0) {
             pct = 0
@@ -16,25 +17,17 @@ function update_progress(pct) {
         $('.progress-bar').attr('stroke-dashoffset', offset);
         $('.progress-label').text(Number(Math.round(pct + 'e2') + 'e-2') + '%'); // Rounds to two decimal places
     };
-
+	console.log('pct: '+pct);
     // Check for finish
-		var tt = luu2[0].innerHTML;
-        tt = tt.split("%");
-        var luut = parseInt(tt[0], 10)
-    var timerxong;
-    if (pct === 101 && luut>=99) {
-        timerxong = setTimeout(function() {
-            $('.progress-bar').css('transition', '0.4s cubic-bezier(0.5,0,0.2,1)');
-        }, 1000);
-    } else {
-        clearTimeout(timerxong);
-    }
-    (pct === 101 && luut>=99) ? (complete()) : (incomplete());
-    //if(pct === 90) glink();
+    (pct === 101) ? (complete()) : (incomplete());
 };
 
 // Complete and Error States
 function complete() {
+	chuaht=false;
+	console.log('complete'+chuaht);
+	
+	$('.progress-bar').css('transition', '0.4s cubic-bezier(0.5,0,0.2,1)');
     $('.phantram').addClass('hidden').removeClass('error');
     $('.quangcaoan').addClass('hidden')
     $('#getlink').prop("disabled", !1);
@@ -68,7 +61,7 @@ function complete() {
 };
 
 function glink() {
-    var query = window.location.search.substring(1);
+	var query = window.location.search.substring(1);
     const params = new URLSearchParams(query);
     var ur = atob(params.get('url'));
     var p = ur.split('&')[0];
@@ -103,7 +96,6 @@ function glink() {
                 alert("Can not connect to server! Contact Web Admin.");
             });
     }
-
 }
 
 var getJSON = function(url, successHandler, errorHandler) {
@@ -128,9 +120,12 @@ var getJSON = function(url, successHandler, errorHandler) {
     xhr.send();
 };
 
-
+var chuaht;
 function incomplete() {
     $('.container').removeClass('flipped complete');
+	chuaht=true;
+	console.log('incomplate'+chuaht);
+	
 };
 
 function error() {
@@ -164,7 +159,7 @@ function test() {
         // your code here
         $('.progress-bar').css('transition', '0.12s ease');
         //for(var i = 0; i <= 100; i++) { timer_thing(i); };
-        timers = [];
+        //timers = [];
 
         prtimer1(0);
 
@@ -183,6 +178,16 @@ var luu;
 var luu2 = document.getElementsByClassName("progress-label");
 
 function pauseTimer() {
+    console.log('idd-p: '+idd);
+    clearTimeout(idd);
+    console.log('idd-p: '+idd);
+    // if(typeof idd !== 'undefined'){
+    //     // clear all timers in the array
+    //     while (idd--) {
+    //         clearTimeout(idd);
+    //     }   
+    // }
+if(chuaht==true){
     console.log('p-pause:' + pause1);
     console.log('p-resume:' + resume1);
     console.log(luu);
@@ -192,19 +197,21 @@ function pauseTimer() {
         t = t.split("%");
         luu = parseInt(t[0], 10) - 1;
 
+        //clearTimeout(idd);
+        
         // clear all timers in the array
         while (idd--) {
-            window.clearTimeout(idd); // will do nothing if no timeout with id is present
+            clearTimeout(idd); // will do nothing if no timeout with id is present
+			//console.log('clear timer: '+idd);
         }
 
         console.log(luu);
-    } else {
-        resume1 = false;
     }
-
+}
 };
 
 function resumeTimer() {
+if(chuaht==true){
     console.log(luu);
     console.log('r-pause:' + pause1);
     console.log('r-resume:' + resume1);
@@ -214,18 +221,17 @@ function resumeTimer() {
         console.log(luu + "--" + resume1);
 		setTimeout(function() {
         	prtimer1(luu);
-		}, 800);
+		}, 600);
     }
-
+}
 }
 
 //start.addEventListener("click", function () {
 //    prtimer1(0);
 //}, false);
 
-window.addEventListener('blur', pauseTimer, false);
 
-//resume.addEventListener("click", resumeTimer, false);
+window.addEventListener('blur', pauseTimer, false);
 window.addEventListener('focus', resumeTimer, false);
 
 var pause1 = false;
@@ -233,9 +239,10 @@ var resume1 = false;
 var idd;
 
 function prtimer1(s) {
-    console.log(s + 'pr');
-    for (i = 0; i <= (150 - s); i++) {
-        timer_thing(i);
+    console.log(s + '-' + luu);
+    for (var i=0; i <= (150 - s); i++) {
+        if(i+luu>101 || i >  101) break;
+		timer_thing(i);
     };
 }
 
@@ -247,7 +254,8 @@ function timer_thing(i) {
         luu1 = i
     };
     idd = setTimeout(function() {
-        update_progress(luu1)
+        update_progress(luu1);
+		console.log('update_p:'+i);
     }, (150 * i));
 
 };
