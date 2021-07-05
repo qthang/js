@@ -3,10 +3,10 @@ var getlink = $('#getlink'),
     url = '';
 
 function update_progress(pct) {
-	console.log('timer: '+idd);
+	//console.log('timer: '+idd);
     if (!isNaN(pct)) {
         if (pct >= 101) {
-            console.log('pct >= 101: '+pct);
+           // console.log('pct >= 101: '+pct);
             pct = 101;
         }; // Too High
         if (pct < 0) {
@@ -17,7 +17,7 @@ function update_progress(pct) {
         $('.progress-bar').attr('stroke-dashoffset', offset);
         $('.progress-label').text(Number(Math.round(pct + 'e2') + 'e-2') + '%'); // Rounds to two decimal places
     };
-	console.log('pct: '+pct);
+	//console.log('pct: '+pct);
     // Check for finish
     (pct === 101) ? (complete()) : (incomplete());
 };
@@ -25,7 +25,7 @@ function update_progress(pct) {
 // Complete and Error States
 function complete() {
 	chuaht=false;
-	console.log('complete'+chuaht);
+	//console.log('complete'+chuaht);
 	
 	$('.progress-bar').css('transition', '0.4s cubic-bezier(0.5,0,0.2,1)');
     $('.phantram').addClass('hidden').removeClass('error');
@@ -71,8 +71,8 @@ function glink() {
         n = n.substring(0, n.lastIndexOf("/"));
     }
     n = n.substring(n.lastIndexOf("/") + 1);
-    console.log(p);
-    console.log(n);;
+    //console.log(p);
+    //console.log(n);;
     if (n.length >= 6) {
         url = ur.split('&')[1];
         console.log("n>=6:" + url);
@@ -124,7 +124,7 @@ var chuaht;
 function incomplete() {
     $('.container').removeClass('flipped complete');
 	chuaht=true;
-	console.log('incomplate'+chuaht);
+	//console.log('incomplate'+chuaht);
 	
 };
 
@@ -178,9 +178,9 @@ var luu;
 var luu2 = document.getElementsByClassName("progress-label");
 
 function pauseTimer() {
-    console.log('idd-p: '+idd);
+    //console.log('idd-p: '+idd);
     clearTimeout(idd);
-    console.log('idd-p: '+idd);
+    //console.log('idd-p: '+idd);
     // if(typeof idd !== 'undefined'){
     //     // clear all timers in the array
     //     while (idd--) {
@@ -188,9 +188,9 @@ function pauseTimer() {
     //     }   
     // }
 if(chuaht==true){
-    console.log('p-pause:' + pause1);
-    console.log('p-resume:' + resume1);
-    console.log(luu);
+    //console.log('p-pause:' + pause1);
+    //console.log('p-resume:' + resume1);
+    //console.log(luu);
     if (luu == undefined || resume1 == true) {
         pause1 = true;
         var t = luu2[0].innerHTML;
@@ -205,20 +205,20 @@ if(chuaht==true){
 			//console.log('clear timer: '+idd);
         }
 
-        console.log(luu);
+        //console.log(luu);
     }
 }
 };
 
 function resumeTimer() {
 if(chuaht==true){
-    console.log(luu);
-    console.log('r-pause:' + pause1);
-    console.log('r-resume:' + resume1);
+    //console.log(luu);
+    //console.log('r-pause:' + pause1);
+    //console.log('r-resume:' + resume1);
 
     if (luu > 0 && luu != undefined) {
         resume1 = true;
-        console.log(luu + "--" + resume1);
+        //console.log(luu + "--" + resume1);
 		setTimeout(function() {
         	prtimer1(luu);
 		}, 600);
@@ -239,7 +239,7 @@ var resume1 = false;
 var idd;
 
 function prtimer1(s) {
-    console.log(s + '-' + luu);
+    //console.log(s + '-' + luu);
     for (var i=0; i <= (150 - s); i++) {
         if(i+luu>101 || i >  101) break;
 		timer_thing(i);
@@ -255,7 +255,7 @@ function timer_thing(i) {
     };
     idd = setTimeout(function() {
         update_progress(luu1);
-		console.log('update_p:'+i);
+		//console.log('update_p:'+i);
     }, (150 * i));
 
 };
